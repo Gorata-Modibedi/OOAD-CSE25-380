@@ -1,0 +1,15 @@
+
+# Java compiled files
+*.class
+
+# Logs
+*.log
+
+# Compiled output
+out/
+
+# Local database files
+data/
+
+# Temporary files
+*.tmp
