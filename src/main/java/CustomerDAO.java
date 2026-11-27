@@ -56,6 +56,25 @@ public void findCustomer(int customerId) throws SQLException {
     }
 }
 
+// Authenticate a customer by ID and password
+
+public boolean authenticateCustomer(int customerId, String password)
+        throws SQLException {
+
+    String sql = "SELECT customer_id FROM customers "
+               + "WHERE customer_id = ? AND password = ?";
+
+    try (PreparedStatement statement = connection.prepareStatement(sql)) {
+
+        statement.setInt(1, customerId);
+        statement.setString(2, password);
+
+        try (ResultSet result = statement.executeQuery()) {
+            return result.next();
+        }
+    }
+}
+
 
 public void updateCustomer(int customerId, String fullnames,
                            String address, String phone)

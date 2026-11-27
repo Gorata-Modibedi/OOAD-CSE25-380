@@ -38,8 +38,7 @@ public class BankingControllerTest {
         }
     }
 
-    // Wipes the test rows left by the last run, so the test can be repeated.
-    // Order matters: transaction first, then account, then customer.
+
     private static void cleanUp() throws SQLException {
         System.out.println("Cleaning old test data...");
         try (java.sql.Connection c = BankingDatabase.getConnection();

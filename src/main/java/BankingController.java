@@ -33,6 +33,19 @@ public class BankingController {
         }
     }
 
+    // Authenticate a customer
+public boolean loginCustomer(int customerId, String password) {
+    if (password == null || password.trim().isEmpty()) {
+        return false;
+    }
+
+    try {
+        return customerDAO.authenticateCustomer(customerId, password);
+    } catch (SQLException e) {
+        System.out.println("Login failed: " + e.getMessage());
+        return false;
+    }
+}
     // Open an account
     public boolean openAccount(String accountNumber, double balance,
                                String branch, Date openDate,
